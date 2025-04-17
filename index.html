@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Completo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Menú vertical */
+    .menu {
+      background-color: #82cdd0;
+      padding: 10px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu button {
+      background-color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .menu button:hover {
+      background-color: #ddd;
+    }
+
+    /* Contenedor principal */
+    .contenido {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Caja centrada */
+    .caja-centrada {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      height: 100%;
+    }
+
+    .sidebar .lado {
+      background-color: #333;
+      color: white;
+      width: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sidebar .contenido-lado {
+      flex: 1;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Menú vertical adicional */
+    .menu-vertical {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+    }
+
+    .menu-vertical a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .menu-vertical a:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Tarjeta */
+    .tarjeta {
+      width: 300px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .tarjeta .header {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .tarjeta .body {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tarjeta .footer {
+      background-color: #aaa;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Layout de columnas */
+    .layout-columnas {
+      display: flex;
+      height: 100%;
+    }
+
+    .columna-izquierda {
+      width: 60%;
+      background-color: teal;
+      color: white;
+      padding: 10px;
+    }
+
+    .columna-derecha {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .columna-derecha div {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <button onclick="mostrarSeccion('caja')">Caja centrada</button>
+    <button onclick="mostrarSeccion('sidebar')">Sidebar</button>
+    <button onclick="mostrarSeccion('menuVertical')">Menú vertical</button>
+    <button onclick="mostrarSeccion('tarjeta')">Tarjeta</button>
+    <button onclick="mostrarSeccion('layout')">Layout columnas</button>
+  </div>
+
+  <div class="contenido" id="contenido">
+    <div id="caja" class="caja-centrada">Caja centrada</div>
+
+    <div id="sidebar" class="sidebar" style="display: none;">
+      <div class="lado">Sidebar</div>
+      <div class="contenido-lado">Contenido</div>
+    </div>
+
+    <div id="menuVertical" style="display: none;">
+      <h2>Menú vertical</h2>
+      <div style="display: flex; gap: 20px;">
+        <div class="menu-vertical">
+          <a href="#">Inicio</a>
+          <a href="#">Servicios</a>
+          <a href="#">Contacto</a>
+        </div>
+        <p>Contenido del menú vertical</p>
+      </div>
+    </div>
+
+    <div id="tarjeta" style="display: none;">
+      <div class="tarjeta">
+        <div class="header">Tarjeta de presentación</div>
+        <div class="body">Contenido del cuerpo de la tarjeta</div>
+        <div class="footer">Pie de la tarjeta</div>
+      </div>
+    </div>
+
+    <div id="layout" class="layout-columnas" style="display: none;">
+      <div class="columna-izquierda">Columna izquierda</div>
+      <div class="columna-derecha">
+        <div>Derecha parte alta</div>
+        <div>Derecha parte baja</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSeccion(seccion) {
+      const secciones = ['caja', 'sidebar', 'menuVertical', 'tarjeta', 'layout'];
+      secciones.forEach(id => {
+        document.getElementById(id).style.display = id === seccion ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
+
